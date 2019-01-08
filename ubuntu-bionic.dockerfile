@@ -16,4 +16,9 @@ RUN apt-get update -q -q && \
  sed -i 's/\/\$nginx_version//' /etc/nginx/fastcgi_params && \
  echo 'fastcgi_param SCRIPT_FILENAME $request_filename;' >> /etc/nginx/fastcgi_params
 
+RUN apt-get update -q -q && \
+ apt-get --yes install vim multitail less ranger zsh
+
 COPY ./etc /etc
+COPY ./home /root
+COPY ./home/prompt_adam2_setup /usr/share/zsh/functions/Prompts/prompt_adam2_setup
