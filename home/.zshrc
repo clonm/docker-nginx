@@ -16,7 +16,7 @@ compinit
 promptinit
 
 # Set prompt
-prompt adam2 magenta blue green black red
+prompt adam2 blue blue yellow black blue
 # source prompt_kir.zsh
 
 # Add commands to history as they are entered, don't wait for shell to exit
