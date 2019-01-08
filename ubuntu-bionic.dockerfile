@@ -19,6 +19,11 @@ RUN apt-get update -q -q && \
 RUN apt-get update -q -q && \
  apt-get --yes install vim multitail less ranger zsh
 
+RUN \
+ sed "51i\  prompt_adam2_color5=${5:-'red'}  # >,!, or #" /usr/share/zsh/functions/Prompts/prompt_adam2_setup > /tmp/prompt && \
+ sed -i 's/{white}/{$prompt_adam2_color5}/g' /tmp/prompt && \
+ mv /tmp/prompt /usr/share/zsh/functions/Prompts/prompt_adam2_setup
+
 COPY ./etc /etc
 COPY ./home /root
 COPY ./home/prompt_adam2_setup /usr/share/zsh/functions/Prompts/prompt_adam2_setup
